@@ -46,7 +46,7 @@ def injects(fname):
 
 def getdata():
     custom = [[sg.Text('Filename of the video to inject the "virus":')],
-              [sg.Text('Press Enter to confirm')],
+              [sg.Text('(Press Enter to confirm)')],
               [sg.Input('', enable_events=True,  key='-INPUT-', )],
               [sg.Button('Exit')],
               [sg.Button('Submit', visible=False, bind_return_key=True)],
