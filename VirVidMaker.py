@@ -5,17 +5,21 @@ from sys import exit
 from urllib.request import urlretrieve
 from lastversion import has_update
 from ping3 import ping
+from os.path import isfile
 
+# ===============< Prep Phase >===============
+if isfile('samplevideo.mp4') == True:
+    remove('samplevideo.mp4')
 system('cls')
 sg.theme("DarkGray15")
 sg.set_options(font=("Consolas", 9), text_color='#FFFFFF')
-urlretrieve('https://raw.githubusercontent.com/xemulat/VirusVideoMaker/main/texttofile.txt', 'fake-tmp.txt')
-with open("fake-tmp.txt","r") as FileX:
+urlretrieve('https://raw.githubusercontent.com/xemulat/VirusVideoMaker/main/texttofile.txt', 'temp.vvgen')
+with open("temp.vvgen","r") as FileX:
     fpload = FileX.read()
 
 # ===============< The Injector >===============
 def injects(fname):
-    file1 = open(fname, "a")  # adds some fake malware text lul
+    file1 = open(fname, "a")
     file1.write('\n')
     file1.write(fpload)
     file1.close()
@@ -33,7 +37,7 @@ def done():
     while True:
         event, values = window.read()
         if event == sg.WIN_CLOSED:
-            remove('fake-tmp.txt')
+            remove('temp.vvgen')
             exit()
 
 def getdata():
@@ -57,7 +61,7 @@ def getdata():
               [sg.Text('Filename of the video to inject the "virus":')],
               [sg.Text('Press Enter to confirm')],
               [sg.Input('', enable_events=True,  key='-INPUT-', )],
-              [sg.Button('Exit'), sg.Button('Enter', visible=True, bind_return_key=True)],
+              [sg.Button('Exit'), sg.Button('Enter', visible=True, bind_return_key=True), sg.Button('Sample Video')],
               [sg.Text('')],
               [sg.Text('Coded by Xemulated')]]
 
@@ -66,9 +70,14 @@ def getdata():
     while True:
         event, values = window.read()
         if event == "Exit" or event == sg.WIN_CLOSED:
-            remove('fake-tmp.txt')
+            remove('temp.vvgen')
             exit()
         
+        if event == 'Sample Video':
+            urlretrieve("https://github.com/xemulat/VirusVideoMaker/raw/main/cinder.mp4", "samplevideo.mp4")
+            window.close()
+            injects("samplevideo.mp4")
+
         elif event == 'Enter':
             if window['-INPUT-'].get() == '':
                 sleep(0.001)
