@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 from os import remove
 from sys import exit
 from urllib.request import urlretrieve
-from lastversion import has_update
+from lastversion import latest
 from ping3 import ping
 from os.path import isfile
 
@@ -40,10 +40,10 @@ def done():
 
 def getdata():
     # ===============< Updater >===============
-    newver = has_update(repo='xemulat/VirusVideoMaker', current_version='1.1')
-    if "False" == newver:
+    newver = latest('xemulat/VirusVideoMaker')
+    if "1.1" == str(newver):
         vers = "Your Version is Up-To-Date!"
-    elif "True" == newver:
+    elif str(newver) > "1.1":
         vers = "Your Version is Outdated, download it from My repo!"
     else:
         vers = "Unable to check updates :("
