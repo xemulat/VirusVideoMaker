@@ -6,7 +6,7 @@ Made for No Text To Speech with ♥️
 # HOW TO DO DIS!?!?/!?
 1. Double-Click the downloaded file
 
-![image](https://user-images.githubusercontent.com/98595166/188280776-570610a2-1528-4cac-8061-9b48c756f395.png)
+![image](https://cdn.upload.systems/uploads/vU9kgSzD.png)
 
 2. Input your video's name (ex. cinderblocc.mp4)
 3. Click enter
