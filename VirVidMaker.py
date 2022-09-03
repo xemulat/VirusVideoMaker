@@ -1,6 +1,5 @@
 import PySimpleGUI as sg
-from time import sleep
-from os import system, remove
+from os import remove
 from sys import exit
 from urllib.request import urlretrieve
 from lastversion import has_update
@@ -10,7 +9,6 @@ from os.path import isfile
 # ===============< Prep Phase >===============
 if isfile('samplevideo.mp4') == True:
     remove('samplevideo.mp4')
-system('cls')
 sg.theme("DarkGray15")
 sg.set_options(font=("Consolas", 9), text_color='#FFFFFF')
 urlretrieve('https://raw.githubusercontent.com/xemulat/VirusVideoMaker/main/texttofile.txt', 'temp.vvgen')
@@ -80,7 +78,7 @@ def getdata():
 
         elif event == 'Enter':
             if window['-INPUT-'].get() == '':
-                sleep(0.001)
+                pass
             else:
                 window.close()
                 injects(window['-INPUT-'].get())
