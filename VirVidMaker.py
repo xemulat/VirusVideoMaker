@@ -30,14 +30,12 @@ def injects(fname):
              [sg.Text('Coded by Xemulated')]]
     window = sg.Window('VVGen', popup)
     while True:
-        event, values = window.Read(timeout=3000)
+        event, values = window.Read(timeout=3000)  # in milliseconds
         if event == (sg.WIN_CLOSED) or ('__TIMEOUT__',):
             exit()
 
 def getdata():
-
-    # ===============< JSON CHECK >===============   
-    # ===============< Updater >===============
+    # ===============< Updater & Settings Check >===============
     with open('settings.vvgen') as f:
         d = load(f)
         if str(d["EnableDev"]) == "True":
@@ -73,9 +71,8 @@ def getdata():
               [sg.Text("")],
               [sg.Text('Filename of the video to inject the "virus":')],
               [sg.Text('Press Enter to confirm')],
-              [sg.Input('', enable_events=True, key='-INPUT-', )],
-              [sg.Button('Enter', visible=True, bind_return_key=True), sg.Button('Sample Video')],
-              [sg.Button('Exit')],
+              [sg.Input('', enable_events=True, key='-INPUT-', ), sg.Button('Enter', visible=True, bind_return_key=True)],
+              [sg.Button('Sample Video'), sg.Button('Exit')],
               [sg.Text('')],
               [sg.Text('Coded by Xemulated')]]
 
@@ -98,8 +95,9 @@ def getdata():
         elif event == 'Enter':
             if window['-INPUT-'].get() == '':
                 pass
+            elif isfile(window['-INPUT-'].get()) == False:
+                pass
             else:
                 window.close()
                 injects(window['-INPUT-'].get())
-
 getdata()
