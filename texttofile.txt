@@ -17,3 +17,5 @@ end with
 
 objShell.RegWrite "HKCU\Control Panel\Desktop\Wallpaper", strDirectory + "\myImage.png"
 objShell.Run "%windir%\System32\RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters", 1, True
+
+# Created using Xemul/VirusVideoMaker, check github!
