@@ -42,13 +42,13 @@ def getdata():
             newver = "dev"
         else:
             newver = latest('xemulat/VirusVideoMaker')
-        if "1.2" == str(newver):
+        if "1.3" == str(newver):
             vers = "Up-To-Date"
             hcve = "#00FF00"
         elif str(newver) == "dev":
             vers = "Dev build, not checking for updates"
             hcve = "#74D962"
-        elif str(newver) > "1.2":
+        elif str(newver) > "1.3":
             vers = "Outdated, download it from my github"
             hcve = "#FF0000"
         else:
@@ -84,7 +84,7 @@ def getdata():
             remove('temp.vvgen')
             exit()
 
-        if event == 'Sample Video':
+        elif event == 'Sample Video':
             if isfile('samplevideo.mp4') == True:
                 remove('samplevideo.mp4')
             urlretrieve(
