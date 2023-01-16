@@ -1,7 +1,7 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 # VirusVideoMaker
 Fake Discord virus video maker written in Python 3.10.6
-
-Made for No Text To Speech with ♥️
 
 # HOW TO DO DIS!?!?/!?
 1. Double-Click the downloaded file
